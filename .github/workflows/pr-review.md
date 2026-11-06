@@ -7,7 +7,12 @@ permissions:
   contents: read
   pull-requests: read
 
-engine: copilot   # optional (default)
+engine:
+  id: copilot
+  model: gpt-6-luna
+  env:
+    COPILOT_PROVIDER_BASE_URL: https://20261106foundry.openai.azure.com/openai/v1
+    COPILOT_PROVIDER_API_KEY: ${{ secrets.FOUNDRY_API_KEY }}
 
 tools:
   github:
@@ -27,4 +32,4 @@ safe-outputs:
 # Pull Request Review Assistant
 
 Review the diff of this pull request. Focus on correctness, security, maintainability, and test coverage.
-Post inline comments only for high-severity findings, and finish with a single review containing an overall summary. Write in English and Japanese.
+Post inline comments only for high-severity findings, and finish with a single review containing an overall summary. Write in Japanese.
